@@ -35,6 +35,16 @@
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
+            opacity: 0.5;
+        }
+        .download-button.enabled {
+            opacity: 1;
+            cursor: pointer;
+        }
+        .countdown {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #ff0000;
         }
         .ads {
             margin: 20px auto;
@@ -47,7 +57,10 @@
     <div class="topbar">
         <img src="logo.png" alt="IceCreamMC Logo">
         <h1>IceCreamMC</h1>
-        <a href="https://github.com/IceCreamMC/IceCream/releases/download/1.21.1-b0a9bb5/IceCream-1.21.1.jar" class="download-button">Download</a>
+        <div>
+            <a id="downloadBtn" href="https://github.com/IceCreamMC/IceCream/releases/download/1.21.1-b0a9bb5/IceCream-1.21.1.jar" class="download-button disabled" disabled>Download</a>
+            <span id="countdown" class="countdown">10</span> seconds remaining
+        </div>
     </div>
 
     <div class="ads">
@@ -55,13 +68,39 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <ins class="adsbygoogle"
             style="display:block"
-            data-ad-client="ca-pub-3518382144643766" <!-- Replace with your AdSense publisher ID -->
-            data-ad-slot="3211304152" <!-- Replace with your ad slot ID -->
+            data-ad-client="ca-pub-3518382144643766"
+            data-ad-slot="3211304152"
             data-ad-format="auto"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
+
+    <script>
+        let countdown = 10;  // 10 seconds countdown
+        const countdownElement = document.getElementById('countdown');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        // Disable the button initially
+        downloadBtn.classList.add('disabled');
+        downloadBtn.style.pointerEvents = 'none';  // Disable click
+        downloadBtn.style.opacity = 0.5;  // Make the button semi-transparent
+
+        // Countdown function
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                // Enable the button when the countdown is finished
+                clearInterval(timer);
+                downloadBtn.classList.remove('disabled');
+                downloadBtn.style.pointerEvents = 'auto';  // Enable click
+                downloadBtn.style.opacity = 1;  // Fully visible button
+                countdownElement.textContent = '';  // Remove countdown text
+            }
+        }, 1000);  // 1000ms = 1 second
+    </script>
 
 </body>
 </html>
