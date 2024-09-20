@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-3518382144643766?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IceCreamMC</title>
- <script async src="https://fundingchoicesmessages.google.com/i/pub-3518382144643766?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-        <head> <link rel="stylesheet" href="main/styles.css">
-        <style>
+    <style>
         body {
-            font-family: Poppins, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f9fa;
@@ -16,7 +15,7 @@
         .topbar {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Aligns everything to the left */
+            justify-content: space-between;
             background-color: #EF94D4;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -28,7 +27,6 @@
         .topbar h1 {
             font-size: 24px;
             margin: 0;
-            text-align: left; /* Ensures the text inside the h1 is left-aligned */
         }
         .download-button {
             background-color: #007bff;
@@ -60,7 +58,7 @@
     <div class="topbar">
         <img src="logo.png" alt="IceCreamMC Logo">
         <h1>IceCreamMC</h1>
-        <div style="margin-left: auto;"> <!-- This pushes the button and countdown to the right -->
+        <div>
             <a id="downloadBtn" href="https://github.com/IceCreamMC/IceCream/releases/download/1.21.1-b0a9bb5/IceCream-1.21.1.jar" class="download-button disabled" disabled>Download</a>
             <span id="countdown" class="countdown">10</span> seconds remaining
         </div>
@@ -104,9 +102,6 @@
             }
         }, 1000);  // 1000ms = 1 second
     </script>
-
-</body>
-</html>
 
 </body>
 </html>
