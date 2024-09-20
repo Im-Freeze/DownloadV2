@@ -14,7 +14,7 @@
         .topbar {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start; /* Aligns everything to the left */
             background-color: #EF94D4;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -26,6 +26,7 @@
         .topbar h1 {
             font-size: 24px;
             margin: 0;
+            text-align: left; /* Ensures the text inside the h1 is left-aligned */
         }
         .download-button {
             background-color: #007bff;
@@ -42,7 +43,7 @@
             cursor: pointer;
         }
         .countdown {
-            margin-right: 10px;
+            margin-left: 10px;
             font-size: 16px;
             color: #ff0000;
         }
@@ -57,7 +58,7 @@
     <div class="topbar">
         <img src="https://raw.githubusercontent.com/Im-Freeze/DownloadV2/main/Logo.png" alt="IceCreamMC Logo">
         <h1>IceCreamMC</h1>
-        <div>
+        <div style="margin-left: auto;"> <!-- This pushes the button and countdown to the right -->
             <a id="downloadBtn" href="https://github.com/IceCreamMC/IceCream/releases/download/1.21.1-b0a9bb5/IceCream-1.21.1.jar" class="download-button disabled" disabled>Download</a>
             <span id="countdown" class="countdown">10</span> seconds remaining
         </div>
@@ -104,3 +105,4 @@
 
 </body>
 </html>
+
