@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;700&display=swap');
 
 body {
-    font-family: 'Poppins', sans-serif; /* Applying the custom font */
+    font-family: Poppins, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
@@ -26,7 +26,6 @@ body {
     font-size: 24px;
     margin: 0;
     text-align: left; /* Ensures the text inside the h1 is left-aligned */
-    font-weight: 700; /* Applying bold style for h1 */
 }
 
 .download-button {
@@ -55,11 +54,6 @@ body {
     margin: 20px auto;
     text-align: center;
 }
-
-.topbar div {
-    margin-left: auto; /* Pushes the button and countdown to the right */
-}
-
 
 .topbar div {
     margin-left: auto; /* Pushes the button and countdown to the right */
