@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <head> <link rel="stylesheet" href="main/styles.css">
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-3518382144643766?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <link rel="stylesheet" href="main/styles.css">
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-3518382144643766?ers=1"></script>
+    <script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IceCreamMC</title>
@@ -25,9 +26,28 @@
             height: 40px;
             margin-right: 10px;
         }
-        .topbar h1 {
-            font-size: 24px;
-            margin: 0;
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
         .download-button {
             background-color: #007bff;
@@ -58,15 +78,19 @@
 
     <div class="topbar">
         <img src="https://raw.githubusercontent.com/Im-Freeze/DownloadV2/main/24080-ICMC.png" alt="IceCreamMC Logo">
-        <h1>IceCreamMC</h1>
+        <div class="dropdown">
+            <button class="dropbtn">Download Options</button>
+            <div id="dropdown-content" class="dropdown-content">
+                <!-- Content will be dynamically loaded from GitHub API -->
+            </div>
+        </div>
         <div>
-            <a id="downloadBtn" href="https://github.com/IceCreamMC/IceCream/releases/download/1.21.1-b0a9bb5/IceCream-1.21.1.jar" class="download-button disabled" disabled>Download</a>
+            <a id="downloadBtn" href="#" class="download-button disabled" disabled>Download</a>
             <span id="countdown" class="countdown">10</span> seconds remaining
         </div>
     </div>
 
     <div class="ads">
-        <!-- Replace with your Google Ads code -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <ins class="adsbygoogle"
             style="display:block"
@@ -79,6 +103,21 @@
     </div>
 
     <script>
+        // Fetch releases from GitHub API
+        fetch('https://api.github.com/repos/IceCreamMC/IceCream/releases')
+        .then(response => response.json())
+        .then(data => {
+            const dropdownContent = document.getElementById('dropdown-content');
+            
+            data.forEach(release => {
+                const a = document.createElement('a');
+                a.href = release.assets[0].browser_download_url;  // Link to the asset
+                a.textContent = release.name;  // Display release name
+                dropdownContent.appendChild(a);
+            });
+        })
+        .catch(error => console.error('Error fetching releases:', error));
+
         let countdown = 10;  // 10 seconds countdown
         const countdownElement = document.getElementById('countdown');
         const downloadBtn = document.getElementById('downloadBtn');
@@ -100,10 +139,10 @@
                 downloadBtn.style.pointerEvents = 'auto';  // Enable click
                 downloadBtn.style.opacity = 1;  // Fully visible button
                 countdownElement.textContent = '';  // Remove countdown text
+                downloadBtn.href = 'https://github.com/IceCreamMC/IceCream/releases/latest'; // Set the download link
             }
-        }, 1000);  // 1000ms = 1 seconds
+        }, 1000);  // 1000ms = 1 second
     </script>
 
 </body>
 </html>
-
